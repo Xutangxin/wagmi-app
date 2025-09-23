@@ -10,9 +10,14 @@ import {
 
 const { Text } = Typography;
 import { parseEther } from "viem";
-import { useSendTransaction, useWaitForTransactionReceipt } from "wagmi";
+import {
+  useSendTransaction,
+  useWaitForTransactionReceipt,
+  useAccount,
+} from "wagmi";
 
 export default function SendTransaction() {
+  const { isConnected } = useAccount();
   const { data: hash, isPending, sendTransaction } = useSendTransaction();
 
   const { isLoading, isSuccess, isError, error } = useWaitForTransactionReceipt(
@@ -29,6 +34,8 @@ export default function SendTransaction() {
       value: parseEther(`${values.value}`),
     });
   };
+
+  if (!isConnected) return null;
 
   return (
     <div>

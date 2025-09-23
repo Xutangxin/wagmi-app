@@ -1,18 +1,12 @@
 import { Button, Typography } from "antd";
-import { useEffect } from "react";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 
 const { Text } = Typography;
 
-export default function WalletConnect({ setAccount }) {
+export default function WalletConnect() {
   const { address } = useAccount();
-  const account = useAccount();
   const { connectors, connect } = useConnect();
   const { disconnect } = useDisconnect();
-
-  useEffect(() => {
-    setAccount(account);
-  }, [account]);
 
   return address ? (
     <div className="mb">
