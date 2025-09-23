@@ -1,0 +1,19 @@
+.app {
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+.ant-btn {
+  margin-right: 8px;
+}
+
+.addr {
+  margin-bottom: 8px;
+}
+
+.ml {
+  margin-left: 10px;
+}
+.mb {
+  margin-bottom: 10px;
+}
