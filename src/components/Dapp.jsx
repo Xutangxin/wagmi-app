@@ -5,6 +5,7 @@ import WalletConnect from "./WalletConnect";
 import SendTransaction from "./SendTransaction";
 import NetInfo from "./NetInfo";
 import ReadContract from "./ReadContract";
+import WriteContract from "./WriteContract";
 
 export default function Dapp() {
   return (
@@ -16,6 +17,7 @@ export default function Dapp() {
             <NetInfo />
             <ReadContract />
             <SendTransaction />
+            <WriteContract />
           </div>
         </QueryClientProvider>
       </WagmiProvider>
