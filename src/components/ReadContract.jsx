@@ -25,7 +25,7 @@ export default function ReadContract() {
   });
 
   return (
-    <div className="mt">
+    <div className="mb">
       {error && <Alert type="error" message={error.message}></Alert>}
       {isPending ? <div>加载中...</div> : <div>余额: {data?.toString()}</div>}
     </div>

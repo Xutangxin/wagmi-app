@@ -14,8 +14,8 @@ export default function Dapp() {
           <div className="dapp">
             <WalletConnect />
             <NetInfo />
-            <SendTransaction />
             <ReadContract />
+            <SendTransaction />
           </div>
         </QueryClientProvider>
       </WagmiProvider>
