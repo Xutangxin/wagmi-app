@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import WalletConnect from "./WalletConnect";
 import SendTransaction from "./SendTransaction";
 import NetInfo from "./NetInfo";
+import ReadContract from "./ReadContract";
 
 export default function Dapp() {
   return (
@@ -14,6 +15,7 @@ export default function Dapp() {
             <WalletConnect />
             <NetInfo />
             <SendTransaction />
+            <ReadContract />
           </div>
         </QueryClientProvider>
       </WagmiProvider>
