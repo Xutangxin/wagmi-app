@@ -9,12 +9,10 @@ export default function WalletConnect() {
   const { disconnect } = useDisconnect();
 
   return address ? (
-    <div className="mb">
-      <span className="addr">
-        已连接地址:
-        <Text copyable> {address}</Text>
-      </span>
-      <Button className="ml" danger onClick={() => disconnect()}>
+    <div>
+      已连接地址:
+      <Text copyable> {address}</Text>
+      <Button className="ml-[18px]" danger onClick={() => disconnect()}>
         断开连接
       </Button>
     </div>

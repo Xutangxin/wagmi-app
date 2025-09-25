@@ -1,4 +1,4 @@
-import { Button, Card, Input } from "antd";
+import { Button, Card, Input, Alert } from "antd";
 import { useState } from "react";
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
 
@@ -33,7 +33,7 @@ export default function WriteContract() {
   };
 
   return (
-    <Card className="mt">
+    <Card title="铸造NFT/货币">
       <Input
         value={tokenId}
         placeholder="Token ID"
@@ -43,16 +43,31 @@ export default function WriteContract() {
       />
       <Button
         type="primary"
-        className="mt"
+        className="mt-[10px]"
+        disabled={!tokenId}
         loading={isPending || isLoading}
         onClick={mint}
       >
-        {isPending ? "确认中..." : "Mint"}
+        {isPending ? "确认中..." : "铸造"}
       </Button>
-      {error && <div style={{ color: "red" }}>Error: {error.message}</div>}
-      {hash && <div>交易哈希: {hash}</div>}
-      {isPending && <div>等待确认...</div>}
-      {isSuccess && <div>交易已确认</div>}
+
+      <div className="mt-[10px]">
+        {error && (
+          <Alert
+            type="error"
+            message="Error"
+            description={error.message}
+          ></Alert>
+        )}
+        {isPending && <div>等待确认...</div>}
+        {isSuccess && (
+          <Alert
+            type="success"
+            message="交易已确认"
+            description={"交易哈希: " + hash}
+          ></Alert>
+        )}
+      </div>
     </Card>
   );
 }

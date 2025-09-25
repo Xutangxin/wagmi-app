@@ -12,7 +12,7 @@ export default function Dapp() {
     <>
       <WagmiProvider config={config}>
         <QueryClientProvider client={new QueryClient()}>
-          <div className="dapp">
+          <div>
             <WalletConnect />
             <NetInfo />
             <ReadContract />

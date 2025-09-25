@@ -27,8 +27,6 @@ export default function SendTransaction() {
   );
 
   const onFinish = (values) => {
-    console.log("values", values);
-
     sendTransaction({
       to: values.address,
       value: parseEther(`${values.value}`),
@@ -38,7 +36,7 @@ export default function SendTransaction() {
   if (!isConnected) return null;
 
   return (
-    <div>
+    <div className="mb-[10px]">
       <Card title="发送交易">
         <Form
           name="basic"

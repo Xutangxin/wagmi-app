@@ -1,4 +1,4 @@
-import { Alert } from "antd";
+import { Alert, Card } from "antd";
 import { useReadContract } from "wagmi";
 
 const constractAddress = "0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9";
@@ -25,9 +25,9 @@ export default function ReadContract() {
   });
 
   return (
-    <div className="mb">
+    <Card className="mb-[10px]">
       {error && <Alert type="error" message={error.message}></Alert>}
       {isPending ? <div>加载中...</div> : <div>余额: {data?.toString()}</div>}
-    </div>
+    </Card>
   );
 }
