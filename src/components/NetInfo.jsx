@@ -3,7 +3,7 @@ import { useAccount } from "wagmi";
 export default function NetInfo() {
   const { isConnected, chain } = useAccount();
 
-  if (!isConnected) {
+  if (!isConnected || !chain) {
     return null;
   }
   return (
