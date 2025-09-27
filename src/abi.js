@@ -7,3 +7,11 @@ export const mintAbi = [
     stateMutability: "nonpayable",
   },
 ];
+export const balanceAbi = [
+  {
+    name: "balanceOf",
+    type: "function",
+    inputs: [{ name: "owner", type: "address" }],
+    outputs: [{ type: "uint256" }],
+  },
+];
