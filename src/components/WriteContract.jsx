@@ -1,18 +1,14 @@
 import { Button, Card, Input, Alert } from "antd";
 import { useState } from "react";
 import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
+import { mintAbi } from "../abi";
+import { getAddress } from "viem";
 
-const constractAddress = "0x7b79995e5f793A07Bc00c21412e50Ecae098E7f9"; // 临时的
+const constractAddress = "0x1F856Fd79F1Bc5f546e8C7F869E6d9E97A7D9C7E";
 
 const contractConfig = {
-  address: constractAddress,
-  abi: [
-    {
-      name: "mint", // 铸造
-      type: "function",
-      inputs: [{ name: "tokenId", type: "uint256" }],
-    },
-  ],
+  address: getAddress(constractAddress),
+  abi: mintAbi,
 };
 
 export default function WriteContract() {
