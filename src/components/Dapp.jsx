@@ -6,6 +6,7 @@ import SendTransaction from "./SendTransaction";
 import NetInfo from "./NetInfo";
 import ReadContract from "./ReadContract";
 import WriteContract from "./WriteContract";
+import Balance from "./Balance";
 
 export default function Dapp() {
   return (
@@ -15,7 +16,8 @@ export default function Dapp() {
           <div>
             <WalletConnect />
             <NetInfo />
-            <ReadContract />
+            <Balance />
+            {/* <ReadContract /> */}
             <SendTransaction />
             <WriteContract />
           </div>
