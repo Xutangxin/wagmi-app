@@ -8,7 +8,7 @@ const contractConfig = {
   address: constractAddress,
   abi: [
     {
-      name: "mint", // 铸造NFT
+      name: "mint", // 铸造
       type: "function",
       inputs: [{ name: "tokenId", type: "uint256" }],
     },
@@ -33,7 +33,7 @@ export default function WriteContract() {
   };
 
   return (
-    <Card title="铸造NFT/货币">
+    <Card title="铸造">
       <Input
         value={tokenId}
         placeholder="Token ID"
@@ -59,7 +59,6 @@ export default function WriteContract() {
             description={error.message}
           ></Alert>
         )}
-        {isPending && <div>等待确认...</div>}
         {isSuccess && (
           <Alert
             type="success"

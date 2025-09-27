@@ -26,6 +26,8 @@ export default function SendTransaction() {
     }
   );
 
+  const recipientAddr = "0x5bF9634a97fAdfCEDCE8fF81A293dFf0FA060ADa";
+
   const onFinish = (values) => {
     sendTransaction({
       to: values.address,
@@ -46,7 +48,7 @@ export default function SendTransaction() {
           onFinish={onFinish}
           autoComplete="off"
           initialValues={{
-            address: "0x5bF9634a97fAdfCEDCE8fF81A293dFf0FA060ADa",
+            address: recipientAddr,
             value: 0.001,
           }}
         >

@@ -25,7 +25,7 @@ export default function ReadContract() {
   });
 
   return (
-    <Card className="mb-[10px]">
+    <Card className="mb-[10px]" title="合约读取余额">
       {error && <Alert type="error" message={error.message}></Alert>}
       {isPending ? <div>加载中...</div> : <div>余额: {data?.toString()}</div>}
     </Card>

@@ -1,3 +1,4 @@
+import { Tag } from "antd";
 import { formatUnits } from "viem";
 import { useAccount, useBalance } from "wagmi";
 
@@ -10,15 +11,13 @@ export default function Balance() {
 
   return (
     <div className="mb-[10px]">
-      {/* {!data && <span>获取余额中...</span>} */}
       {data && (
-        <div>
+        <Tag className="p-[6px] font-bold text-sm">
           余额:{" "}
           <span>
-            {formatUnits(data.value, data.decimals)}
-            {data.symbol}
+            {formatUnits(data.value, data.decimals)} {data.symbol}
           </span>
-        </div>
+        </Tag>
       )}
     </div>
   );

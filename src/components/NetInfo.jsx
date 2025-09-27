@@ -1,3 +1,4 @@
+import { Tag } from "antd";
 import { useAccount } from "wagmi";
 
 export default function NetInfo() {
@@ -8,8 +9,8 @@ export default function NetInfo() {
   }
   return (
     <div className="mb-[10px] mt-[10px] ">
-      <h4>ChainId: {chain.id}</h4>
-      <h4>ChainName: {chain.name}</h4>
+      <Tag className="p-[4px]">ChainId: {chain.id}</Tag>
+      <Tag className="p-[4px]">ChainName: {chain.name}</Tag>
     </div>
   );
 }
