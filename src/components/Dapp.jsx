@@ -7,6 +7,7 @@ import NetInfo from "./NetInfo";
 import ReadContract from "./ReadContract";
 import WriteContract from "./WriteContract";
 import Balance from "./Balance";
+import Nfts from "./Nfts";
 
 export default function Dapp() {
   return (
@@ -19,6 +20,7 @@ export default function Dapp() {
             <Balance />
             {/* <ReadContract /> */}
             <SendTransaction />
+            <Nfts />
             <WriteContract />
           </div>
         </QueryClientProvider>

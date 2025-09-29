@@ -1,16 +1,15 @@
 import { http, createConfig } from "wagmi";
-import { mainnet, sepolia } from "wagmi/chains";
+import { baseSepolia, mainnet, sepolia } from "wagmi/chains";
 import { injected, metaMask, walletConnect } from "wagmi/connectors";
-
-const projectId = "1306cedcc99db7786b11146cf8efbc32"; // WalletConnect项目ID
+import { projectId } from "./constants";
 
 export const config = createConfig({
   autoConnect: true,
   connectors: [injected(), walletConnect({ projectId }), metaMask()],
-  chains: [sepolia, mainnet],
-  // chains: [sepolia],
+  chains: [sepolia, mainnet, baseSepolia],
   transports: {
     [sepolia.id]: http(),
     [mainnet.id]: http(),
+    [baseSepolia.id]: http(),
   },
 });
