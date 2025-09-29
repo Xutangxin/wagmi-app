@@ -35,7 +35,7 @@ export default function Nfts() {
     <Spin spinning={loading}>
       <Card className="mb-[10px]">
         {nfts.length ? (
-          <div className="flex gap-x-[18px]">
+          <div className="flex gap-x-[16px]">
             {nfts.map((i) => {
               return (
                 <NFTCard
@@ -49,7 +49,7 @@ export default function Nfts() {
             })}
           </div>
         ) : (
-          <p>暂无NFT</p>
+          !loading && <p> 暂无NFT</p>
         )}
       </Card>
     </Spin>

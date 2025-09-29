@@ -11,6 +11,24 @@ import Nfts from "./Nfts";
 import { Tabs } from "antd";
 import TabPane from "antd/es/tabs/TabPane";
 
+const items = [
+  {
+    key: "1",
+    label: "发送交易",
+    children: <SendTransaction />,
+  },
+  {
+    key: "2",
+    label: "NFTs",
+    children: <Nfts />,
+  },
+  {
+    key: "3",
+    label: "铸造",
+    children: <WriteContract />,
+  },
+];
+
 export default function Dapp() {
   return (
     <>
@@ -20,18 +38,7 @@ export default function Dapp() {
             <WalletConnect />
             <NetInfo />
             <Balance />
-            <Tabs defaultActiveKey="2">
-              <TabPane tab="发送交易" key="1">
-                <SendTransaction />
-              </TabPane>
-              <TabPane tab="NFTs" key="2">
-                <Nfts />
-              </TabPane>
-              <TabPane tab="铸造" key="3">
-                <WriteContract />
-              </TabPane>
-            </Tabs>
-
+            <Tabs defaultActiveKey="2" items={items}></Tabs>
             {/* <ReadContract /> */}
           </div>
         </QueryClientProvider>
