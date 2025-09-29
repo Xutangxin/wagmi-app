@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { Card, Spin } from "antd";
 
 import { Network, Alchemy } from "alchemy-sdk";
+
+import { NFTCard } from "@ant-design/web3";
+
 const settings = {
   apiKey: apiKey, // Replace with your Alchemy API Key.
   network: Network.BASE_SEPOLIA, // Replace with your network.
 };
-
 const alchemy = new Alchemy(settings);
 
 export default function Nfts() {
@@ -33,9 +35,19 @@ export default function Nfts() {
     <Spin spinning={loading}>
       <Card className="mb-[10px]">
         {nfts.length ? (
-          nfts.map((i) => {
-            return <div key={i.tokenId}>{i.name}</div>;
-          })
+          <div className="flex gap-x-[18px]">
+            {nfts.map((i) => {
+              return (
+                <NFTCard
+                  key={i.tokenId}
+                  name={i.name}
+                  tokenId={i.tokenId}
+                  description={i.description}
+                  image={(i.image || {}).thumbnailUrl}
+                ></NFTCard>
+              );
+            })}
+          </div>
         ) : (
           <p>暂无NFT</p>
         )}

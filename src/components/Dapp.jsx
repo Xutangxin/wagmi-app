@@ -20,7 +20,7 @@ export default function Dapp() {
             <WalletConnect />
             <NetInfo />
             <Balance />
-            <Tabs defaultActiveKey="1">
+            <Tabs defaultActiveKey="2">
               <TabPane tab="发送交易" key="1">
                 <SendTransaction />
               </TabPane>
