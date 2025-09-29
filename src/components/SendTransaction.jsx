@@ -39,7 +39,7 @@ export default function SendTransaction() {
 
   return (
     <div className="mb-[10px]">
-      <Card title="发送交易">
+      <Card>
         <Form
           name="basic"
           // labelCol={{ span: 8 }}

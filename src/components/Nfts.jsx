@@ -31,13 +31,13 @@ export default function Nfts() {
 
   return (
     <Spin spinning={loading}>
-      <Card title="NFTs" className="mb-[10px]">
+      <Card className="mb-[10px]">
         {nfts.length ? (
           nfts.map((i) => {
             return <div key={i.tokenId}>{i.name}</div>;
           })
         ) : (
-          <div>{!nfts.length && <p>暂无NFT</p>}</div>
+          <p>暂无NFT</p>
         )}
       </Card>
     </Spin>

@@ -29,9 +29,11 @@ export default function WriteContract() {
   };
 
   return (
-    <Card title="铸造">
+    <Card>
       <Input
+        className="max-w-[400px]"
         value={tokenId}
+        allowClear
         placeholder="Token ID"
         onChange={(e) => {
           setTokenId(e.target.value);
@@ -39,7 +41,7 @@ export default function WriteContract() {
       />
       <Button
         type="primary"
-        className="mt-[10px]"
+        className="ml-[14px]"
         disabled={!tokenId}
         loading={isPending || isLoading}
         onClick={mint}
