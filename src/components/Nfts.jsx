@@ -35,10 +35,11 @@ export default function Nfts() {
     <Spin spinning={loading}>
       <Card className="mb-[10px]">
         {nfts.length ? (
-          <div className="flex gap-x-[16px]">
+          <div className="flex flex-wrap gap-[12px]">
             {nfts.map((i) => {
               return (
                 <NFTCard
+                className="min-w-[240px]"
                   key={i.tokenId}
                   name={i.name}
                   tokenId={i.tokenId}
