@@ -7,11 +7,20 @@ import { Network, Alchemy } from "alchemy-sdk";
 
 import { NFTCard } from "@ant-design/web3";
 
-const settings = {
-  apiKey: apiKey, // Replace with your Alchemy API Key.
-  network: Network.BASE_SEPOLIA, // Replace with your network.
-};
-const alchemy = new Alchemy(settings);
+const settingList = [
+  {
+    apiKey: apiKey, // Replace with your Alchemy API Key.
+    network: Network.ETH_MAINNET, // Replace with your network.
+  },
+  {
+    apiKey: apiKey,
+    network: Network.ETH_SEPOLIA,
+  },
+  {
+    apiKey: apiKey,
+    network: Network.BASE_SEPOLIA,
+  },
+];
 
 export default function Nfts() {
   const { address } = useAccount();
@@ -20,11 +29,20 @@ export default function Nfts() {
 
   const getNfts = async () => {
     setLoading(true);
-    const res = await alchemy.nft.getNftsForOwner(address).finally(() => {
+    const jobs = settingList.map(async (setting) => {
+      const res = await new Alchemy(setting).nft.getNftsForOwner(address);
+      return res;
+    });
+
+    const allRes = await Promise.allSettled(jobs).finally(() => {
       setLoading(false);
     });
-    console.log("res: ", res.ownedNfts);
-    setNfts(res.ownedNfts);
+    const list = allRes
+      .filter((job) => job.status === "fulfilled")
+      .map((i) => i.value.ownedNfts || [])
+      .flat();
+
+    setNfts(list);
   };
 
   useEffect(() => {
@@ -39,7 +57,7 @@ export default function Nfts() {
             {nfts.map((i) => {
               return (
                 <NFTCard
-                className="min-w-[240px]"
+                  className="min-w-[240px]"
                   key={i.tokenId}
                   name={i.name}
                   tokenId={i.tokenId}
