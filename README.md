@@ -1,4 +1,4 @@
-# React + Wagmi + Vite
+# React + Wagmi + Antd-web3 + Vite
 
 ## 功能
 
@@ -7,6 +7,4 @@
 3. 账户 nft 展示
 4. 铸造 token
 
-
 <img width="948" height="1241" alt="image" src="https://github.com/user-attachments/assets/138ccb78-64a9-48c3-9e4e-df9738328c25" />
-
