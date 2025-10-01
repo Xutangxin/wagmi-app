@@ -38,7 +38,7 @@ export default function Dapp() {
             <WalletConnect />
             <NetInfo />
             <Balance />
-            <Tabs defaultActiveKey="2" items={items}></Tabs>
+            <Tabs defaultActiveKey="1" items={items}></Tabs>
             {/* <ReadContract /> */}
           </div>
         </QueryClientProvider>
